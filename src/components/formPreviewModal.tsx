@@ -25,7 +25,7 @@ interface FormPreviewModalProps {
 
 const FormPreviewModal = ({ open, onClose, form }: FormPreviewModalProps) => {
   // Setup react-hook-form
-  const { handleSubmit, control } = useForm({
+  const { handleSubmit, control, reset } = useForm({
     defaultValues:
       form?.fields?.reduce((acc: Record<string, unknown>, field) => {
         acc[field.name] = field.type === "checkbox" ? [] : "";
@@ -38,6 +38,8 @@ const FormPreviewModal = ({ open, onClose, form }: FormPreviewModalProps) => {
     console.log("Form Data:", data);
 
     alert("Submitted! Check console for data.");
+
+    reset();
 
     onClose();
   };
