@@ -79,7 +79,7 @@ const FormBuilderDrawer: React.FC<Props> = ({ open, onClose }) => {
     <Drawer
       anchor="right"
       open={open}
-      onClose={(e, reason) => {
+      onClose={(_, reason) => {
         if (reason === "backdropClick") return;
         onClose();
       }}
